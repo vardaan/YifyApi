@@ -11,13 +11,15 @@ import android.widget.TextView;
 import com.example.hplaptop.yifyapi.R;
 import com.squareup.picasso.Picasso;
 
-import models.MovieList;
+import java.util.List;
+
+import models.Movie;
 
 /**
- * Created by HP LAPTOP on 30-11-2014.
+ * Created by HP LAPTOP on 29-11-2014.
  */
-public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.ViewHolder> {
-    private static MovieList mMovieList;
+public class UpcomingMovieListAdapter extends RecyclerView.Adapter<UpcomingMovieListAdapter.ViewHolder> {
+    private static List<Movie> mMovieList;
     private static Context mContext;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -41,7 +43,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MovieListAdapter(MovieList myDataset, Context context) {
+    public UpcomingMovieListAdapter(List<Movie> myDataset, Context context) {
         mMovieList = myDataset;
         mContext = context;
     }
@@ -59,16 +61,14 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mMovieTitle.setText(mMovieList.MovieList.get(position).getMovieTitle());
-        Picasso.with(mContext).load(mMovieList.MovieList.get(position).getCoverImage()).into(viewHolder.mMovieCover);
+        viewHolder.mMovieTitle.setText(mMovieList.get(position).getMovieTitle());
+        Picasso.with(mContext).load(mMovieList.get(position).getMovieCover()).into(viewHolder.mMovieCover);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mMovieList.MovieList.size();
+        return mMovieList.size();
     }
 
-
 }
-

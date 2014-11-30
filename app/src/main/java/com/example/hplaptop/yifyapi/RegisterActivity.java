@@ -70,8 +70,9 @@ public class RegisterActivity extends ActionBarActivity {
         else if (!isValidEmail(email))
             mEtEmail.setError("Not a valid email address");
         else {
+
             // call the Api's to intialiate register process
-            ApiClient.getMovieListApiClient().registerUser(uName, email, pass, new Callback<String>() {
+            ApiClient.getYifyApiClient().registerUser(uName, email, pass, new Callback<String>() {
                 @Override
                 public void success(String s, Response response) {
                     Toast.makeText(mContext, s, Toast.LENGTH_LONG).show();

@@ -11,24 +11,24 @@ import android.view.MenuItem;
 
 import java.util.List;
 
-import adapters.MovieListAdapter;
+import adapters.UpcomingMovieListAdapter;
 import api.ApiClient;
 import models.Movie;
 import retrofit.Callback;
 import retrofit.RetrofitError;
 
 
-public class MovieList extends ActionBarActivity {
+public class UpcomingMovies extends ActionBarActivity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mMovieAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
-    private static final String TAG = "MovieList";
+    private static final String TAG = "UpcomingMovies";
     private static Context mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_movie_list);
+        setContentView(R.layout.activity_upcoming_movie_list);
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -41,12 +41,12 @@ public class MovieList extends ActionBarActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
 
 
-        ApiClient.getMovieListApiClient().getStreams(10, 0, new Callback<List<Movie>>() {
+        ApiClient.getYifyApiClient().getStreams(10, 0, new Callback<List<Movie>>() {
 
 
             @Override
             public void success(List<Movie> movies, retrofit.client.Response response) {
-                mMovieAdapter = new MovieListAdapter(movies, mContext);
+                mMovieAdapter = new UpcomingMovieListAdapter(movies, mContext);
                 // specify an adapter (see also next example)
                 mRecyclerView.setAdapter(mMovieAdapter);
             }
@@ -56,7 +56,6 @@ public class MovieList extends ActionBarActivity {
                 Log.d(TAG, "Try after some time !!!!");
             }
         });
-
 
     }
 
