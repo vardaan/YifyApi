@@ -6,22 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.List;
-
 import adapters.MovieListAdapter;
-import api.ApiClient;
 import butterknife.InjectView;
-import models.Movie;
-import models.MovieList;
-import retrofit.Callback;
-import retrofit.RetrofitError;
 
 
 public class MovieListActivity extends ActionBarActivity {
@@ -84,7 +76,7 @@ public class MovieListActivity extends ActionBarActivity {
             mLayoutManager = new LinearLayoutManager(mContext);
             mRecyclerView.setLayoutManager(mLayoutManager);
 
-            ApiClient.getYifyApiClient().getMovieList(10, 0, new Callback<MovieList>() {
+         /*   ApiClient.getYifyApiClient().getMovieList(10, 0, new Callback<MovieList>() {
                 @Override
                 public void success(MovieList list, retrofit.client.Response response) {
                     mMovieAdapter = new MovieListAdapter(list, mContext);
@@ -97,7 +89,7 @@ public class MovieListActivity extends ActionBarActivity {
                     Log.d(TAG, "Try after some time !!!!");
                 }
             });
-
+*/
             return rootView;
         }
     }

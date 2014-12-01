@@ -9,7 +9,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.hplaptop.yifyapi.R;
-import com.squareup.picasso.Picasso;
 
 import models.MovieList;
 
@@ -59,16 +58,18 @@ public class MovieListAdapter extends RecyclerView.Adapter<MovieListAdapter.View
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.mMovieTitle.setText(mMovieList.MovieList.get(position).getMovieTitle());
-        Picasso.with(mContext).load(mMovieList.MovieList.get(position).getCoverImage()).into(viewHolder.mMovieCover);
+        //     viewHolder.mMovieTitle.setText(mMovieList.MovieList.get(position).getMovieTitle());
+        //   Picasso.with(mContext).load(mMovieList.MovieList.get(position).getCoverImage()).into(viewHolder.mMovieCover);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
     public int getItemCount() {
-        return mMovieList.MovieList.size();
+        //return mMovieList.MovieList.size();
+        return 0;
     }
-
-
 }
+
+
+
 

@@ -1,11 +1,7 @@
 package models;
-
 import com.google.gson.annotations.Expose;
 
-/**
- * Created by HP LAPTOP on 30-11-2014.
- */
- public class MovieDetail {
+public class MovieListItem {
 
     @Expose
     private String MovieID;
@@ -24,7 +20,7 @@ import com.google.gson.annotations.Expose;
     @Expose
     private String DateUploaded;
     @Expose
-    private int DateUploadedEpoch;
+    private Integer DateUploadedEpoch;
     @Expose
     private String Quality;
     @Expose
@@ -173,14 +169,14 @@ import com.google.gson.annotations.Expose;
     /**
      * @return The DateUploadedEpoch
      */
-    public int getDateUploadedEpoch() {
+    public Integer getDateUploadedEpoch() {
         return DateUploadedEpoch;
     }
 
     /**
      * @param DateUploadedEpoch The DateUploadedEpoch
      */
-    public void setDateUploadedEpoch(int DateUploadedEpoch) {
+    public void setDateUploadedEpoch(Integer DateUploadedEpoch) {
         this.DateUploadedEpoch = DateUploadedEpoch;
     }
 
@@ -407,6 +403,4 @@ import com.google.gson.annotations.Expose;
     public void setTorrentMagnetUrl(String TorrentMagnetUrl) {
         this.TorrentMagnetUrl = TorrentMagnetUrl;
     }
-
 }
-
