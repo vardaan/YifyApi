@@ -1,6 +1,7 @@
 package api;
 
 import java.util.List;
+import java.util.Map;
 
 import models.LoginResponse;
 import models.Movie;
@@ -12,6 +13,7 @@ import retrofit.http.FormUrlEncoded;
 import retrofit.http.GET;
 import retrofit.http.POST;
 import retrofit.http.Query;
+import retrofit.http.QueryMap;
 
 /**
  * Created by HP LAPTOP on 29-11-2014.
@@ -43,14 +45,20 @@ public class ApiClient {
 
         @FormUrlEncoded
         @POST("/login.json")
-        void LoginUser(@Field("username") String uName,@Field("password") String pass,
+        void LoginUser(@Field("username") String uName, @Field("password") String pass,
                        Callback<LoginResponse> response);
 
+        /*      @GET("/list.json")
+              void getMovieList(@Query("limit") int limit, @Query("set") int offset,
+                                @Query("quality") String quality, @Query("rating") int rating,
+                                @Query("keywords") String keywords, @Query("genre") String genre,
+                                @Query("sort") String sort, @Query("order") String order,
+                                @QueryMap Map<String, String> options),
+                                Callback<List<MovieList>> callback);*/
         @GET("/list.json")
-        void getMovieList(@Query("limit") int limit, @Query("set") int offset,
-                          @Query("quality") String quality,@Query("rating") int rating,
-                          @Query("keywords") String keywords,@Query("genre") String genre,
-                          @Query("sort") String sort,@Query("order") String order,
-                          Callback<List<MovieList>> callback);
+        void getMovieList(
+                @QueryMap Map<String, String> options,
+                Callback<MovieList> callback
+        );
     }
 }
